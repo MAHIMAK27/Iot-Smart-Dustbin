@@ -54,45 +54,6 @@ The system measures the moisture level of the waste material and uses a predefin
 - Arduino Uno Board Package
 - USB Driver (if required)
 
-## 📟 Arduino Code
-
-```cpp
-const int moisturePin = A0;
-
-// Updated threshold
-int moistureThreshold = 800;
-
-void setup() {
-  Serial.begin(9600);
-  Serial.println("SMART WASTE IDENTIFICATION SYSTEM");
-  delay(1000);
-}
-
-void loop() {
-
-  int total = 0;
-
-  // Take multiple readings
-  for (int i = 0; i < 10; i++) {
-    total += analogRead(moisturePin);
-    delay(50);
-  }
-
-  int moistureValue = total / 10;
-
-  Serial.print("Sensor Value: ");
-  Serial.print(moistureValue);
-
-  // Classify waste
-  if (moistureValue < moistureThreshold) {
-    Serial.println("  ==> WET WASTE");
-  }
-  else {
-    Serial.println("  ==> DRY WASTE");
-  }
-
-  delay(1000);
-}
 ```
 
 ## 🚀 How to Run the Project
